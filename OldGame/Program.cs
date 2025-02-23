@@ -14,6 +14,10 @@ namespace OldGame
 
             int healAmount = 12;
 
+            Random random = new Random();
+
+
+
             while (playerHp > 0 && enemyHp > 0)
             {
                 //player turn
@@ -30,13 +34,25 @@ namespace OldGame
                 else
                 {
                     playerHp += healAmount;
-                    Console.WriteLine("You healed yourself for " + healAmount + " health.");
+                    Console.WriteLine("You healed yourself for " + healAmount + " health points.");
                 }
 
                 //Enemy turn
                 if (enemyHp > 0)
                 {
                     Console.WriteLine("--Enemy turn--");
+                    int enemyChoice = random.Next(0, 2);
+
+                    if(enemyChoice == 0)
+                    {
+                        playerHp -= enemyAttack;
+                        Console.WriteLine("Enemy attacks and deals " + enemyAttack + " damage ");
+                    }
+                    else
+                    {
+                        enemyHp += healAmount;
+                        Console.WriteLine("Enemy heals for " + healAmount + " health points.");
+                    }
                 }
             }
 
