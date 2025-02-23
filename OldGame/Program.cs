@@ -12,13 +12,34 @@ namespace OldGame
             int playerAttack = 10;
             int enemyAttack = 9;
 
-            string choice = Console.ReadLine();
+            int healAmount = 12;
 
-            if(choice == "a")
+            while (playerHp > 0 && enemyHp > 0)
             {
-                enemyHp -= playerAttack;
-                Console.WriteLine("You attacked the enemy! and dealt " + playerAttack + " damage ");
+                //player turn
+                Console.Write("--Player turn--");
+                Console.WriteLine("Press 'a' to attack or 'h' to heal.");
+
+                string choice = Console.ReadLine();
+
+                if(choice == "a")
+                {
+                    enemyHp -= playerAttack;
+                    Console.WriteLine("You attacked the enemy and dealt " + playerAttack + " damage.");
+                }
+                else
+                {
+                    playerHp += healAmount;
+                    Console.WriteLine("You healed yourself for " + healAmount + " health.");
+                }
+
+                //Enemy turn
+                if (enemyHp > 0)
+                {
+                    Console.WriteLine("--Enemy turn--");
+                }
             }
+
         }
     }
 }
