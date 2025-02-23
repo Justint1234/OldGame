@@ -7,10 +7,10 @@ namespace OldGame
         static void Main(string[] args)
         {
             int playerHp = 200;
-            int enemyHp = 100;
+            int enemyHp = 200;
 
-            int playerAttack = 10;
-            int enemyAttack = 9;
+            int playerAttack = 20;
+            int enemyAttack = 20;
 
             int healAmount = 12;
 
@@ -22,6 +22,7 @@ namespace OldGame
             {
                 //player turn
                 Console.Write("--Player turn--");
+                Console.WriteLine("Player HP: " + playerHp + ", Enemy Hp: " + enemyHp);
                 Console.WriteLine("Press 'a' to attack or 'h' to heal.");
 
                 string choice = Console.ReadLine();
@@ -41,6 +42,8 @@ namespace OldGame
                 if (enemyHp > 0)
                 {
                     Console.WriteLine("--Enemy turn--");
+                    Console.WriteLine("Player HP: " + playerHp + ", Enemy Hp:" +
+                        "a " + enemyHp);
                     int enemyChoice = random.Next(0, 2);
 
                     if(enemyChoice == 0)
@@ -54,6 +57,15 @@ namespace OldGame
                         Console.WriteLine("Enemy heals for " + healAmount + " health points.");
                     }
                 }
+            }
+
+            if (playerHp > 0)
+            {
+                Console.WriteLine("You won CONGRATUALTINS!");
+            }
+            else
+            {
+                Console.WriteLine("You lost, you suck!");
             }
 
         }
